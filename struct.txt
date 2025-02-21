@@ -1,0 +1,9 @@
+Structure
+📂 learnarcade/
+📂 assets/ (Images, icons, animations)
+📂 css/ (Stylesheets)
+📂 js/ (JavaScript scripts)
+📜 index.html (Main entry file)
+📜 login.html (Login & Sign-up)
+📜 dashboard.html (Role-based dashboards)
+📜 classroom.html (Classroom & course management)
