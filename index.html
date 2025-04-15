@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Arcade - The School Social Learning Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glow-button {
+            background: #00FFF0;
+            color: #0F0F0F;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 240, 0.5);
+        }
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 240, 0.8);
+        }
+        .card {
+            background: #1A1A1A;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border: 1px solid #00C4FF;
+            transform: scale(1.02);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .particle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 240, 0.1), rgba(161, 0, 240, 0.1));
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-[#1A1A1A] py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#00FFF0] font-orbitron">LearnArcade</a>
+            <div class="space-x-4">
+                <a href="signup.html" class="text-[#00C4FF] hover:underline">Sign Up</a>
+                <a href="login.html" class="glow-button px-4 py-2 rounded-lg">Log In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center">
+        <div class="particle-bg"></div>
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Learn, Connect, Thrive with Learn Arcade</h1>
+            <p class="text-lg md:text-xl mb-8 fade-in" style="animation-delay: 0.3s;">
+                A gamified platform uniting students, teachers, and schools in a vibrant learning community.
+            </p>
+            <a href="signup.html" class="glow-button px-6 py-3 rounded-lg text-lg fade-in" style="animation-delay: 0.6s;">
+                Join the Arcade
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Learn Arcade?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6 rounded-lg text-center fade-in">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-xl font-bold mb-2">Explore & Grow</h3>
+                    <p>Join multi-subject classes, earn badges, and connect with peers.</p>
+                </div>
+                <div class="card p-6 rounded-lg text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-4xl mb-4">📝</div>
+                    <h3 class="text-xl font-bold mb-2">Build Classes</h3>
+                    <p>Create engaging courses and foster discussions as a teacher.</p>
+                </div>
+                <div class="card p-6 rounded-lg text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-4xl mb-4">🏫</div>
+                    <h3 class="text-xl font-bold mb-2">Lead Schools</h3>
+                    <p>Manage schools and join a global community as a headmistress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-[#1A1A1A]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+            <div class="flex flex-col md:flex-row justify-between gap-8">
+                <div class="text-center fade-in">
+                    <div class="text-4xl mb-4">1️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Join or Create</h3>
+                    <p>Sign up as a student, teacher, or headmistress to join or build a school.</p>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-4xl mb-4">2️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Engage</h3>
+                    <p>Learn in classes, teach courses, or manage communities.</p>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-4xl mb-4">3️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Connect</h3>
+                    <p>Collaborate with schools worldwide and earn rewards.</p>
+                </div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mt-16 mb-12">Why Choose Us?</h2>
+            <ul class="max-w-2xl mx-auto space-y-4 fade-in">
+                <li class="flex items-center">
+                    <span class="text-[#00FFF0] mr-2">➤</span> Multi-subject learning for all interests.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-[#00FFF0] mr-2">➤</span> Social features to connect schools globally.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-[#00FFF0] mr-2">➤</span> Gamified rewards to boost engagement.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-[#00FFF0] mr-2">➤</span> Tools for teachers and headmistresses to lead with ease.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 fade-in">
+                <img src="https://via.placeholder.com/400" alt="App Mockup" class="mx-auto rounded-lg">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left fade-in" style="animation-delay: 0.3s;">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Learning Hub, Anywhere</h2>
+                <p class="text-lg mb-6">Access Learn Arcade on iOS, Android, or web to learn and connect.</p>
+                <div class="flex justify-center md:justify-start gap-4 mb-6">
+                    <img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store">
+                    <img src="https://via.placeholder.com/120x40?text=Google+Play" alt="Google Play">
+                </div>
+                <a href="#" class="glow-button px-6 py-3 rounded-lg text-lg">Download Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#1A1A1A] text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-[#00C4FF] mx-2 hover:underline">Home</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">About</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Download</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Terms</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Contact</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-2xl hover:text-[#00FFF0]">𝕏</a>
+                    <a href="#" class="text-2xl hover:text-[#A100F0]">🔗</a>
+                </div>
+            </div>
+            <p class="text-sm">© THE INTELUSION</p>
+        </div>
+    </footer>
+</body>
+</html>
