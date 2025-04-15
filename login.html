@@ -3,64 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnArcade - Login</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/auth.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Log In - Learn Arcade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glow-button {
+            background: #00FFF0;
+            color: #0F0F0F;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 240, 0.5);
+        }
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 240, 0.8);
+        }
+        .login-container {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 2rem auto;
+            box-shadow: 0 0 15px rgba(0, 255, 240, 0.2);
+        }
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: #0F0F0F;
+            border: 1px solid #00FFF0;
+            border-radius: 5px;
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .radio-label {
+            display: flex;
+            align-items: center;
+        }
+        .login-button {
+            background: #00FFF0;
+            color: #0F0F0F;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 240, 0.8);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+            .login-container {
+                margin: 1rem;
+                padding: 1.5rem;
+                width: 90%;
+            }
+            .input-field, .login-button {
+                font-size: 0.9rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card animate-slide-in">
-            <a href="welcome.html" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-             <div class="auth-header">
-                <img src="assets/icon.png" alt="LearnArcade Logo" class="auth-logo">
-                <h1>Welcome Back!</h1>
-                <p>Log in to continue your learning journey</p>
-            </div>
-
-            <form id="loginForm" class="auth-form">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" required>
-                        <button type="button" class="toggle-password">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="form-group remember-forgot">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="remember">
-                        <span class="checkmark"></span>
-                        Remember me
-                    </label>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Log In
-                </button>
-            </form>
-
-            <div class="auth-footer">
-                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    <!-- Navigation -->
+    <nav class="bg-[#1A1A1A] py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#00FFF0] font-orbitron">LearnArcade</a>
+            <div class="space-x-4">
+                <a href="signup.html" class="text-[#00C4FF] hover:underline">Sign Up</a>
+                <a href="login.html" class="glow-button px-4 py-2 rounded-lg">Log In</a>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <script src="js/auth.js"></script>
+    <!-- Login Section -->
+    <section class="py-16 min-h-screen flex items-center bg-[#1A1A1A]">
+        <div class="container mx-auto px-4 text-center">
+            <div class="login-container fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Log In</h2>
+                <form id="login-form">
+                    <input type="text" placeholder="Full Name" class="input-field" required>
+                    <input type="email" placeholder="Email" class="input-field" required>
+                    <input type="password" placeholder="Profile password" class="input-field" required>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="role" value="student" required> Student
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="role" value="teacher"> Teacher/staff
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="role" value="principle"> Principle
+                        </label>
+                    </div>
+                    <input type="text" placeholder="School name" class="input-field" required>
+                    <input type="text" placeholder="School joining code" class="input-field" required>
+                    <button type="submit" class="login-button mt-4">Log In</button>
+                </form>
+                <p class="mt-4">New here? <a href="signup.html" class="text-[#00C4FF]">Sign Up</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#1A1A1A] text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-[#00C4FF] mx-2 hover:underline">Home</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">About</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Download</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Terms</a>
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Contact</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-2xl hover:text-[#00FFF0]">𝕏</a>
+                    <a href="#" class="text-2xl hover:text-[#A100F0]">🔗</a>
+                </div>
+            </div>
+            <p class="text-sm">© THE INTELUSION</p>
+        </div>
+    </footer>
+
+    <script>
+        function selectLoginRole(role) {
+            alert(`Logging in as ${role}`);
+            // This function can be extended for real role selection logic
+        }
+    </script>
 </body>
 </html>

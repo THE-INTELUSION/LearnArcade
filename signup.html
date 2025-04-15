@@ -3,97 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnArcade - Sign Up</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/auth.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sign Up - Learn Arcade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glow-button {
+            background: #00FFF0;
+            color: #0F0F0F;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 240, 0.5);
+        }
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 240, 0.8);
+        }
+        .card {
+            background: #1A1A1A;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border: 1px solid #00C4FF; /* Changed from #A100F0 to #00C4FF */
+            transform: scale(1.02);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .required-asterisk {
+            color: #FF0000; /* Red asterisk for mandatory fields */
+            margin-left: 2px;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 0.25rem;
+        }
+        /* Updated focus state to new color */
+        input:focus {
+            outline: none;
+            border-color: #00C4FF; /* Changed from #A100F0 to #00C4FF */
+        }
+    </style>
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card animate-slide-in">
-            <a href="welcome.html" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <div class="auth-header">
-                <img src="assets/icon.png" alt="LearnArcade Logo" class="auth-logo">
-                <h1>Create Account</h1>
-                <p>Join LearnArcade and start learning</p>
-            </div>
-
-            <form id="signupForm" class="auth-form">
-                <div class="form-group">
-                    <label for="role">I am a</label>
-                    <div class="role-selector">
-                        <label class="role-option">
-                            <input type="radio" name="role" value="student" checked>
-                            <span class="role-box">
-                                <i class="fas fa-user-graduate"></i>
-                                <span>Student</span>
-                            </span>
-                        </label>
-                        <label class="role-option">
-                            <input type="radio" name="role" value="teacher">
-                            <span class="role-box">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <span>Teacher</span>
-                            </span>
-                        </label>
-                        <label class="role-option">
-                            <input type="radio" name="role" value="principal">
-                            <span class="role-box">
-                                <i class="fas fa-user-tie"></i>
-                                <span>Principal</span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" required>
-                        <button type="button" class="toggle-password">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    <div class="password-strength" id="passwordStrength">
-                        <div class="strength-bar"></div>
-                        <span class="strength-text">Password strength</span>
-                    </div>
-                </div>
-
-                <!-- Dynamic fields based on role -->
-                <div id="roleSpecificFields"></div>
-
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class="fas fa-user-plus"></i>
-                    Create Account
-                </button>
-            </form>
-
-            <div class="auth-footer">
-                <p>Already have an account? <a href="login.html">Log In</a></p>
+    <!-- Navigation -->
+    <nav class="bg-[#1A1A1A] py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#00FFF0] font-orbitron">LearnArcade</a>
+            <div class="space-x-4">
+                <a href="signup.html" class="text-[#00C4FF] hover:underline">Sign Up</a> <!-- Changed from #A100F0 to #00C4FF -->
+                <a href="login.html" class="glow-button px-4 py-2 rounded-lg">Log In</a>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <script src="js/auth.js"></script>
+    <!-- Signup Section -->
+    <section class="py-16 min-h-screen flex items-center">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 fade-in">Join Learn Arcade</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="card p-6 rounded-lg cursor-pointer fade-in" onclick="selectRole('student')">
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold mb-2">Student</h3>
+                    <p>Join classes and connect with peers.</p>
+                </div>
+                <div class="card p-6 rounded-lg cursor-pointer fade-in" style="animation-delay: 0.2s;" onclick="selectRole('teacher')">
+                    <div class="text-4xl mb-4">👩‍🏫</div>
+                    <h3 class="text-xl font-bold mb-2">Teacher</h3>
+                    <p>Create classes and share knowledge.</p>
+                </div>
+                <div class="card p-6 rounded-lg cursor-pointer fade-in" style="animation-delay: 0.4s;" onclick="selectRole('headmistress')">
+                    <div class="text-4xl mb-4">🏫</div>
+                    <h3 class="text-xl font-bold mb-2">Headmistress/Headmaster</h3>
+                    <p>Build and manage your school with a joining code.</p>
+                </div>
+            </div>
+            <form id="signup-form" class="max-w-md mx-auto hidden fade-in">
+                <div class="input-group">
+                    <label>Email<span class="required-asterisk">*</span></label>
+                    <input type="email" placeholder="Email" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                </div>
+                <div class="input-group">
+                    <label>Password<span class="required-asterisk">*</span></label>
+                    <input type="password" placeholder="Password" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                </div>
+                <div class="input-group">
+                    <label>Name<span class="required-asterisk">*</span></label>
+                    <input type="text" placeholder="Name" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                </div>
+                <div id="school-fields" class="hidden">
+                    <div class="input-group">
+                        <label>Create School Name<span class="required-asterisk">*</span></label>
+                        <input type="text" placeholder="Create School Name" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                    </div>
+                    <div class="input-group">
+                        <label>Create School Joining Code<span class="required-asterisk">*</span></label>
+                        <input type="text" placeholder="Create School Joining Code" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                    </div>
+                </div>
+                <div id="join-fields" class="hidden">
+                    <div class="input-group">
+                        <label>School Name<span class="required-asterisk">*</span></label>
+                        <input type="text" placeholder="School Name" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                    </div>
+                    <div class="input-group">
+                        <label>School Joining Code<span class="required-asterisk">*</span></label>
+                        <input type="text" placeholder="School Joining Code" class="w-full p-3 mb-4 bg-[#1A1A1A] border border-[#00FFF0] rounded-lg focus:outline-none focus:border-[#00C4FF]" required> <!-- Changed focus border to #00C4FF -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2" required>
+                        Agree to Terms & Conditions<span class="required-asterisk">*</span>
+                    </label>
+                </div>
+                <button type="submit" class="glow-button w-full p-3 rounded-lg">Create Account</button>
+            </form>
+            <p class="mt-4">Already have an account? <a href="login.html" class="text-[#00C4FF] hover:underline">Log In</a></p> <!-- Changed from #A100F0 to #00C4FF -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#1A1A1A] text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-[#00C4FF] mx-2 hover:underline">Home</a> <!-- Changed from #A100F0 to #00C4FF -->
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">About</a> <!-- Changed from #A100F0 to #00C4FF -->
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Download</a> <!-- Changed from #A100F0 to #00C4FF -->
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Terms</a> <!-- Changed from #A100F0 to #00C4FF -->
+                    <a href="#" class="text-[#00C4FF] mx-2 hover:underline">Contact</a> <!-- Changed from #A100F0 to #00C4FF -->
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-2xl hover:text-[#00FFF0]">𝕏</a>
+                    <a href="#" class="text-2xl hover:text-[#00C4FF]">🔗</a> <!-- Changed hover color from #A100F0 to #00C4FF -->
+                </div>
+            </div>
+            <p class="text-sm">© THE INTELUSION</p>
+        </div>
+    </footer>
+
+    <script>
+        function selectRole(role) {
+            const signupForm = document.getElementById('signup-form');
+            const schoolFields = document.getElementById('school-fields');
+            const joinFields = document.getElementById('join-fields');
+
+            signupForm.classList.remove('hidden');
+            schoolFields.classList.add('hidden');
+            joinFields.classList.add('hidden');
+
+            if (role === 'headmistress') {
+                schoolFields.classList.remove('hidden'); // Headmistress can create school and code
+            } else if (role === 'student' || role === 'teacher') {
+                joinFields.classList.remove('hidden'); // Student/Teacher can only join with existing code
+            }
+        }
+
+        // Placeholder form submission (extend with backend logic)
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+            const schoolName = document.querySelector('#school-fields input[placeholder="Create School Name"]')?.value || 
+                              document.querySelector('#join-fields input[placeholder="School Name"]')?.value;
+            const schoolCode = document.querySelector('#school-fields input[placeholder="Create School Joining Code"]')?.value || 
+                             document.querySelector('#join-fields input[placeholder="School Joining Code"]')?.value;
+
+            if (role && schoolName && schoolCode) {
+                alert(`Sign up submitted for ${role} at ${schoolName} with code ${schoolCode} (Placeholder)`);
+            } else {
+                alert('Please fill all required fields.');
+            }
+        });
+    </script>
 </body>
 </html>
